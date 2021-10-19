@@ -1,0 +1,80 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+*{
+    /*we are doing because even if we add any padding or any border element ,it doesnt effect the width of it */
+    box-sizing:border-box;
+}
+
+body{
+background-color:#fff;
+font-family: 'Roboto','sans-serif';
+margin:0;
+display: flex;
+/* display : flex to center everything */
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+overflow: hidden;
+
+
+
+/* as display is flex 
+so we can use flex direction to se items column wise 
+also we can use align item
+if flex direction is column then the align item would be horizontally and if flex direction is row then it would be vertically
+for row we use justify-content center
+and also we have to give the height of the body so that the justify-content value should cam into effect
+*/
+}
+
+
+.container{
+    display: flex;
+    width:90vw;
+}
+
+
+.panel{
+    background-size: cover ;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color:#fff;
+    cursor:pointer;
+    flex:0.5;
+    margin:10px;
+    position:relative;
+    /* position relative because we want to put the h3 inside absolutes */
+    transition: flex 0.7s ease-in;
+
+}
+
+.panel h3{
+    font-size: 24px;
+    position:absolute;
+    bottom: 20px;
+    left:20px;
+    margin:0;
+    opacity: 0;
+}
+
+.panel.active{
+    flex:5;
+}
+.panel.active h3{
+    opacity: 1;
+}
+
+@media (max-width: 480px){
+    .container{
+        width: 100vw;
+    }
+    
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
